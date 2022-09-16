@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Clearbit QA Website</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<style>
+</style>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+  <script>
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="DQwY4N1KXnsPTW14RBCYrBFsCZNjp1HO";;analytics.SNIPPET_VERSION="4.15.3";
+    analytics.load("DQwY4N1KXnsPTW14RBCYrBFsCZNjp1HO");
+    analytics.page();
+    }}();
+  </script>
+</head>
+<body>
+
+  <div class="">
+   <h1>This is a Heading</h1>
+   <p>This is a paragraph.</p>
+   <p>This is another paragraph.</p>
+   <button type="button" name="button" onclick="analytics.track('pauls event')">Track an event with Segment</button>
+   <form id="identify-form" action="javascript:void(0);">
+     <label for="email">Send an identify event with email</label>
+     <input id="email" type="text" name="email">
+     <input type="submit" value="Submit">
+   </form>
+  </div>
+
+  <script>
+    $('#identify-form').submit(function(evt) {
+      evt.preventDefault();
+
+      var emailEl = $('#email')[0];
+      var email = emailEl.value;
+
+
+      analytics.identify(email, {
+        company_domain: email.split('@')[1]
+      });
+    });
+  </script>
+</body>
+</html>
